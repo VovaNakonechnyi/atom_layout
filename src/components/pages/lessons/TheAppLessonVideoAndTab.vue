@@ -143,7 +143,8 @@ watch(availableTime, () => {
 });
 
 const reminderModalShown = () => {
-  if (availableTime.value !== Math.floor(sumTime.value / 2)) return;
+  const allTime = sumTime.value + externalTime
+  if (availableTime.value !== Math.floor(allTime / 2)) return;
   player.value.pauseVideo();
   emitReminderModal('warning');
 };
